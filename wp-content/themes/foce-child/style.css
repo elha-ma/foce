@@ -1,0 +1,471 @@
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+
+
+/*Animation de la première section: banner (fade-in) */
+.banner,
+.anim-video{    
+    animation: banne_fadin 5s;       
+}
+@keyframes banne_fadin {
+from {
+    transform: translateY(-15%);
+    opacity: 0;
+}
+to {
+    transform: translateY(0%);
+    opacity: 1;
+}
+}
+
+/*Animation de l'image du header (fade-in et flottement) */
+.anim-img-video{    
+    animation: banner_img 5s, flot 5s ease-in-out 5s infinite;       
+}
+@keyframes banner_img {
+    from {
+        transform: translateY(60%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+@keyframes flot {
+    0% {
+        transform: translateX(0px);
+        transform: translateY(0px);
+    }
+    10%{
+        transform: translateY(2px);
+        transform: translateX(-2px);
+    }
+    20%{
+        transform: translateY(5px);
+    }
+    40% {
+        transform: translateX(-5px);
+    }
+    60%{
+        transform: translateY(-8px);
+    }
+    80%{
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0px);
+        transform: translateY(0px);
+    }
+}
+
+/* Animation de la section story */
+.story{
+    animation: fadin 5s;       
+ }
+@keyframes fadin {
+    from {
+        transform: translateY(15%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+/* Animation de la section studio et le footer */
+#studio,
+footer{
+    animation: footer_fadin 5s;       
+ }
+@keyframes footer_fadin {
+    from {
+        transform: translateY(60%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+/*Animation fleurs: rotation 360 degres en continu et à vitesse lente */
+.site-footer ul::after,
+.site-footer::before,
+.story h2::after,
+.story__article::after,
+#studio h2::before,
+#studio h2::after
+{
+    animation-name: spin;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+ }
+@keyframes spin {
+    from {
+        transform: rotate(0deg);            
+    }
+    to {
+        transform: rotate(360deg);      
+    }
+}
+
+/*adapter l'origine de l'animation pour la fleur violette du footer*/
+.site-footer::after{
+    animation: spin 10s linear infinite;
+    transform-origin: 50% 15%;
+}
+
+
+/* Animation des titres */
+.animation-title{  
+    display: inline-block;
+    animation-name: anim-title;
+    animation-duration:  0.8s;  
+    animation-timing-function: ease-out;
+}
+@keyframes anim-title {
+from {
+    transform: translateY(80%); 
+    opacity: 0;  
+}
+to {
+    transform: translateY(0%);  
+    opacity: 1; 
+}
+}
+
+.animation-title-delay{  
+    display: inline-block; 
+    animation-name: anim-title-delay;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in;  
+}
+@keyframes anim-title-delay {
+    0% {
+        transform: translateY(80%); 
+        opacity: 0;  
+    }
+    30%{
+        transform: translateY(80%); 
+        opacity: 0;  
+    }
+    100% {
+        transform: translateY(0%);  
+        opacity: 1; 
+    }
+}
+
+/*Mise en page de la section des oscars */
+#oscars{
+    display: flex;    
+	justify-content: space-between;   
+    padding-bottom: 20rem;
+}
+
+#oscars div p{
+    background-image: url("./assets/images/Rectangle-23.png");
+}
+
+.text-oscars {
+	color: #FFF5E9;
+	font-size: 2.5rem;
+	background-repeat: no-repeat;
+	background-size: contain;
+    padding: 2.5em;
+	margin: 0;
+	background-position: center;
+}
+
+.pad-oscars{
+	padding-top: 4em;
+}
+
+.site-footer{   
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8em;
+}
+
+.site-footer::after{
+    right:1em;
+    top:0.1em;
+}
+
+/*Ajout de la vidéo en fond d'écran */
+.banner {
+	background-image: none;
+}
+
+#background-video {    
+    position: absolute;
+    z-index: -1;
+}
+
+@media all and (max-width: 700px) {
+	.banner {
+		background-image: url("./assets/images/banner.png");
+        background-size: cover;
+	}
+    video{
+        display: none;
+    }
+}
+
+/*Style du carroussel des personnages */
+#personnages {
+    position: relative;
+    height: 100%;
+    background: #FFF5E9;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0 0 2rem 0;
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 400px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+
+.text-perso{
+    text-align: center;
+}
+
+.story #characters{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/*Mise en place du mouvement des nuages */
+.story #new-place {
+	display: flex;
+	background-image: url("./assets/images/image_place.png");
+    flex-direction: column;
+	width: 100%;
+	min-height: 699px;
+	background-size: cover;
+}
+
+.story #new-place h3 {
+	background-image: url("./assets/images/orange_place_bg.png");
+	margin-bottom: -1em;
+}
+
+.clouds {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;	
+    padding-top:5em;
+    transform: translateX(0%);
+}
+
+.text-new-place {
+	max-width: 580px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-left: 6em;
+}
+
+.little-cloud{
+    padding-right:25em;
+}
+
+.story #new-place > div p {
+	padding-left: 5em;
+}
+
+/*Style du menu burger */
+.sidenav {
+    width: 100%;
+	max-width: 1440px;
+    min-height: 806px;
+    position: fixed;
+    z-index: 1;
+    top: -806px;
+    background-color: #FFF5E9;
+    padding-top: 60px;
+    transition: left 0.5s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+  
+.sidenav ul {
+    list-style-type: none;
+    display:flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+  
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 40px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+  
+.sidenav a:hover {
+    color: #111;
+    text-shadow: rgb(216, 93, 11) 1px 0 10px;
+}
+  
+/*fade-in du menu burger */
+.sidenav.active {
+    top: 80px;
+    animation: menu_fadin 4s;  
+}
+@keyframes menu_fadin {
+from {
+    transform: translateY(-50%);
+    opacity: 0;
+}
+to {
+    transform: translateY(0%);
+    opacity: 1;
+}
+}
+  
+.close { 
+    text-decoration: none;
+    font-size: 35px;
+    color: black;
+}
+
+.close:hover{
+    color:black;
+}
+
+.burger-icon span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+.m-burger{
+    display:flex;
+    align-items: center;
+}
+
+.dispo-row{
+    width:100%;
+    display:flex;
+    flex-direction: row;  
+    justify-content: space-around;
+    padding-top: 1em;
+    align-items: center;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+.small{
+    width:60%;
+    height:30%;
+    margin-left: 5em;
+}
+
+.center{
+    text-align: center;
+    margin-top: 18em;
+}
+
+/*position des fleurs dans le menu*/
+.orchide{
+    position: absolute;
+	left: -5em;
+	top: 4em;
+}
+
+.sun-flower{
+    position: absolute;
+	right: 12em;
+	top: 6em;
+}
+
+.random-flower{
+    position: absolute;
+	right: -3em;
+	top: 20em;
+}
+
+.flower{
+    position: absolute;
+	left: 16em;
+	top: 26em;
+}
+
+/*positions des chats dans le menu */
+.cat-orange{
+    position: absolute;
+	left: 6em;
+	top: 40em;
+}
+
+.cat-blue{
+    position: absolute;
+	left: 20em;
+	top: 10em;
+}
+
+.cat-black{
+    position: absolute;
+	right: 16em;
+	top: 28em;
+}
+
+.hibiscus{
+    position: absolute;
+	right: -6em;
+	bottom: 0em;
+}
+
+.main-navigation ul{
+    height:auto;
+}
+
+/*flottement des têtes de chats */
+.cat-black,
+.cat-blue,
+.cat-orange{
+    animation: flot 3s ease-in-out 5s infinite;
+}
+
+/*Rotation des fleurs du menu */
+.orchide,
+.random-flower,
+.sun-flower,
+.flower,
+.hibiscus{
+    animation:spin 20s linear infinite;
+}
